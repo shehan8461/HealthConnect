@@ -1,6 +1,14 @@
 const JWT=require('jsonwebtoken')
 const { hashPassword, comparePassword } = require('../helpers/authHelper');
 const userModel=require('../models/userModel')
+var { expressjwt: jwt } = require("express-jwt");
+
+
+//middleware
+const requireSignIn=jwt({
+     secret:process.env.JWT_SECRET, 
+     algorithms: ["HS256"] 
+})
 
 //REGISTER
 const registerController=async(req,res)=>{
@@ -110,13 +118,15 @@ const updateUserController=async(req,res)=>{
             })
            
         }
-        const hashedPassword=password?await hashPassword(password):undefined;
+        const hashedPassword=password? await hashPassword(password):undefined;
         const updateedUser=await userModel.findOneAndUpdate({email},{
             name:name||user.name,
             password:hashedPassword||user.password
 
         },{new:true})
+
         updateedUser.password=undefined;
+
         res.status(200).send({
             success:true,
             message:'profile updated please login',
@@ -132,4 +142,4 @@ const updateUserController=async(req,res)=>{
     }
 }
 
-module.exports={registerController,LoginCntroller,updateUserController}
+module.exports={registerController,LoginCntroller,updateUserController,requireSignIn}

@@ -21,7 +21,7 @@ const Register = ({navigation}) => {
         }
         setloading(false)
         //backend post
-        const{data}=await axios.post("http://192.168.1.6:8080/api/v1/auth/register",
+        const{data}=await axios.post("http://192.168.1.7:8080/api/v1/auth/register",
           {name,email,password}
         )
         navigation.navigate("Login")

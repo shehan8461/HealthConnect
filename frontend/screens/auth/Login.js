@@ -22,11 +22,12 @@ const Login = ({navigation}) => {
           return;
         }
         setloading(false)
-        const{data}=await axios.post("http://192.168.1.6:8080/api/v1/auth/login",
+        const{data}=await axios.post("http://192.168.1.7:8080/api/v1/auth/login",
           {email,password}
         )
         setState(data)
         alert(data&&data.message)
+   
         await AsyncStorage.setItem('@auth', JSON.stringify(data));
         console.log("Login Data =>",{email,password})
         navigation.navigate("Home")
