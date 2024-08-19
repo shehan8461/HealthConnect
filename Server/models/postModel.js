@@ -12,10 +12,11 @@ const postSchema=new mongoose.Schema({
         unique:true,
      
     },
-    postBy:{
+    postedBy:{
         type:mongoose.Schema.ObjectId,
-        required:true,
         ref:'User',
+        required:true,
+   
     
     },
  

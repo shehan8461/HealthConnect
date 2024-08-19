@@ -1,34 +1,62 @@
-const postModel=require('../models/postModel');
+const postModel = require('../models/postModel');
 
-const createPostController= async()=>{
-    try{
-        const {title,description}=req.body
-        if(!title,description){
-            return res.status(500).send({
-                success:false,
-                message:'please provide all fields'
-            })
+const createPostController = async (req, res) => {
+    try {
+        const { title, description } = req.body;
+
+        // Validation: Check if all fields are provided
+        if (!title || !description) {
+            return res.status(400).send({
+                success: false,
+                message: 'Please provide all fields',
+            });
         }
-        const post=await postModel({
+
+        // Create and save the post
+        const post = new postModel({
             title,
             description,
-            postedBy:req.auth._id
-        })
+            postedBy: req.auth._id,
+        });
+
+        await post.save();  // Save post to the database
+
+        // Send successful response
         res.status(201).send({
-            success:true,
-            message:"post created successfully",
+            success: true,
+            message: "Post created successfully",
             post,
-        })
-        console.log(req);
-        
-    }catch(error){
-        console.log(error)
+        });
+
+        console.log("New post created:", post);
+
+    } catch (error) {
+        console.log(error);
         res.status(500).send({
-            success:true,
-            message:'error in post API',
+            success: false,  // Corrected the success status
+            message: 'Error in post API',
             error,
-        })
+        });
     }
 };
 
-module.exports={createPostController}
+
+const getAllPostsController=async(req,res)=>{
+ try{
+    const posts=await postModel.find()
+    res.status(200).send({
+        success:true,
+        message:"All Posts Data",
+        posts,
+    })
+ }catch(error){
+    console.log(error)
+    res.status(500).send({
+        success:false,
+        message:"error in getallposts api",
+        error
+    })
+ }
+}
+
+module.exports = { createPostController,getAllPostsController };

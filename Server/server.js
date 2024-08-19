@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 app.use("/api/v1/auth",require("./routes/userRoutes"))
-app.use("/api/v1/post",require("./routes/postRoutes"))
+app.use("/api/v1/posts",require("./routes/postRoutes"))
 
 app.get("",(req,res)=>{
     res.status(200).json({

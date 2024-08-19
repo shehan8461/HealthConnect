@@ -1,15 +1,21 @@
-import { View, Text,StyleSheet } from 'react-native'
+import { View, Text,StyleSheet,ScrollView } from 'react-native'
 import React,{useContext} from 'react'
 import { AuthContext } from '../context/authContext'
 import FootMenu from '../componenet/Menus/FootMenu'
+import {PostContext} from '../context/postContext'
 
 const Home = () => {
-    const [state]=useContext(AuthContext)
+  
+    const [posts]=useContext(PostContext)
   return (
     <View style={styles.container}>
-      
-      <Text>{JSON.stringify(state,null,4)}</Text>
+      <ScrollView>
+      <Text>{JSON.stringify(posts,null,4)}</Text>
+      </ScrollView>
+      <View style={{backgroundColor:"#ffffff"}}>
       <FootMenu/>
+      </View>
+     
     </View>
   )
 }
