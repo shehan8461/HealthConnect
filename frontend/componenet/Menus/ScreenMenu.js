@@ -10,6 +10,7 @@ import Post from '../../screens/Post';
 import About from '../../screens/About';
 import Account from '../../screens/Account';
 import Doctor from '../../screens/Doctor';
+import Myposts from '../../screens/Myposts';
 
 const ScreenMenu = () => {
     const [state]=useContext(AuthContext)
@@ -49,6 +50,16 @@ const ScreenMenu = () => {
                 <Stack.Screen
               name="Account"
               component={Account}
+            
+              options={{
+                headerBackTitle:"Back",
+                headerRight:()=> <HeaderMenu/>,
+            }}
+            />
+
+                <Stack.Screen
+              name="Myposts"
+              component={Myposts}
             
               options={{
                 headerBackTitle:"Back",

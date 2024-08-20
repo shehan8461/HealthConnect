@@ -16,6 +16,7 @@ const FootMenu = () => {
         color={route.name ==="home" && "orange"}/>
       <Text>Home</Text>
     </TouchableOpacity  >
+
     <TouchableOpacity onPress={()=>navigation.navigate("Post")}>
     <FontAwesome5 
     name="plus-square" 
@@ -24,13 +25,15 @@ const FootMenu = () => {
     />
       <Text>Post</Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress={()=>navigation.navigate("About")}>
+    
+    <TouchableOpacity onPress={()=>navigation.navigate("Myposts")}>
     <FontAwesome5 
-    name="info-circle" 
+    name="list" 
     style={styles.iconsStyle}
-    color={route.name ==="About" && "orange"} />
-      <Text>About</Text>
+    color={route.name ==="Myposts" && "orange"} />
+      <Text>My Posts</Text>
     </TouchableOpacity>
+
     <TouchableOpacity onPress={()=>navigation.navigate("Account")}>
     <FontAwesome5 
     name="user" 
