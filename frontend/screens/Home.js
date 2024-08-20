@@ -11,8 +11,8 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <PostCard posts={posts}/>
-     
+      <PostCard posts={posts}/>
+   
       </ScrollView>
       <View style={{backgroundColor:"#ffffff"}}>
       <FootMenu/>

@@ -12,6 +12,9 @@ import Account from '../../screens/Account';
 import Doctor from '../../screens/Doctor';
 import Myposts from '../../screens/Myposts';
 
+
+
+//set name of function to navigation js file
 const ScreenMenu = () => {
     const [state]=useContext(AuthContext)
     const authenticatedUser=state?.user && state?.token;
@@ -66,6 +69,21 @@ const ScreenMenu = () => {
                 headerRight:()=> <HeaderMenu/>,
             }}
             />
+
+
+
+            <Stack.Screen
+              name="Doctor"
+              component={Doctor}
+            
+              options={{
+                headerBackTitle:"Back",
+                headerRight:()=> <HeaderMenu/>,
+            }}
+            />
+
+
+
             </>
             ):
             (

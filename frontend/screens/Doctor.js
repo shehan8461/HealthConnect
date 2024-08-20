@@ -22,7 +22,7 @@ const Doctor = ({ navigation }) => {
                 return;
             }
             if (!specialization) {
-                alert('Please add post description');
+                alert('Please add Specialization of Doctor');
                 setLoading(false);
                 return;
             }

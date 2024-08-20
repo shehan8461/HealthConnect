@@ -30,7 +30,7 @@ const Post = ({ navigation }) => {
             setLoading(false);
             setPosts([...posts, data?.post]);
             alert(data?.message);
-            navigation.navigate('Home');
+            navigation.navigate('Myposts');
         } catch (error) {
             alert(error.response?.data?.message || error.message);
             setLoading(false);

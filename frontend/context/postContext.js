@@ -11,9 +11,9 @@ const PostProvider=({children})=>{
         setLoading(true);
 
         try{
-            const {data}=await axios.get("/posts/get-all-posts")
+            const {data}=await axios.get("/doctors/get-all-doctor-posts")
             setLoading(false)
-            setPosts(data?.posts)
+            setPosts(data?.postsd)
         }catch(error){
             console.log(error)
             setLoading(false)

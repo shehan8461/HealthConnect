@@ -41,6 +41,18 @@ const FootMenu = () => {
     color={route.name ==="Account" && "orange"} />
       <Text>Account</Text>
     </TouchableOpacity>
+
+
+    <TouchableOpacity onPress={()=>navigation.navigate("Doctor")}>
+    <FontAwesome5 
+    name="user-md" 
+    style={styles.iconsStyle}
+    color={route.name ==="Doctor" && "orange"} />
+      <Text>Doctor</Text>
+    </TouchableOpacity>
+
+    
+    
     </View>
   )
 }

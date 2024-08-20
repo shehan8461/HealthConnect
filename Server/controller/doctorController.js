@@ -24,11 +24,11 @@ const createDoctorController = async (req, res) => {
         // Send successful response
         res.status(201).send({
             success: true,
-            message: "Post created successfully",
+            message: "Docter details added successfully",
             post,
         });
 
-        console.log("New post created:", post);
+        console.log("Docter details added successfully:", post);
 
     } catch (error) {
         console.log(error);
@@ -46,14 +46,14 @@ const getAllDoctorController=async(req,res)=>{
     const posts=await doctorModel.find()
     res.status(200).send({
         success:true,
-        message:"All Posts Data",
+        message:"All Doctors Data",
         posts,
     })
  }catch(error){
     console.log(error)
     res.status(500).send({
         success:false,
-        message:"error in getallposts api",
+        message:"error in getallDoctors api",
         error
     })
  }
