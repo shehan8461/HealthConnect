@@ -3,6 +3,7 @@ import React,{useContext} from 'react'
 import { AuthContext } from '../context/authContext'
 import FootMenu from '../componenet/Menus/FootMenu'
 import {PostContext} from '../context/postContext'
+import PostCard from '../componenet/PostCard'
 
 const Home = () => {
   
@@ -10,7 +11,8 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
-      <Text>{JSON.stringify(posts,null,4)}</Text>
+        <PostCard posts={posts}/>
+     
       </ScrollView>
       <View style={{backgroundColor:"#ffffff"}}>
       <FootMenu/>

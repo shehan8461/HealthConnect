@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import FootMenu from '../componenet/Menus/FootMenu';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { PostContext } from '../context/postContext';
 import axios from 'axios';
 
 const Post = ({ navigation }) => {
+    //global state
+    const[posts,setPosts]=useContext(PostContext)
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [loading, setLoading] = useState(false);
@@ -22,8 +26,9 @@ const Post = ({ navigation }) => {
                 setLoading(false);
                 return;
             }
-            const { data } = await axios.post('/post/create-post', { title, description });
+            const { data } = await axios.post("/posts/create-post", { title, description });
             setLoading(false);
+            setPosts([...posts, data?.post]);
             alert(data?.message);
             navigation.navigate('Home');
         } catch (error) {
