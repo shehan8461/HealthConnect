@@ -9,6 +9,8 @@ import HeaderMenu from './HeaderMenu';
 import Post from '../../screens/Post';
 import About from '../../screens/About';
 import Account from '../../screens/Account';
+import Doctor from '../../screens/Doctor';
+
 const ScreenMenu = () => {
     const [state]=useContext(AuthContext)
     const authenticatedUser=state?.user && state?.token;

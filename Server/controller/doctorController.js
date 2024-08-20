@@ -1,11 +1,11 @@
-const postModel = require('../models/postModel');
+const doctorModel = require('../models/doctorModels');
 
-const createPostController = async (req, res) => {
+const createDoctorController = async (req, res) => {
     try {
-        const { title, description } = req.body;
+        const { name, specialization } = req.body;
 
         // Validation: Check if all fields are provided
-        if (!title || !description) {
+        if (!name || !specialization) {
             return res.status(400).send({
                 success: false,
                 message: 'Please provide all fields',
@@ -13,9 +13,9 @@ const createPostController = async (req, res) => {
         }
 
         // Create and save the post
-        const post = new postModel({
-            title,
-            description,
+        const post = new doctorModel({
+            name,
+            specialization,
             postedBy: req.auth._id,
         });
 
@@ -41,9 +41,9 @@ const createPostController = async (req, res) => {
 };
 
 
-const getAllPostsController=async(req,res)=>{
+const getAllDoctorController=async(req,res)=>{
  try{
-    const posts=await postModel.find()
+    const posts=await doctorModel.find()
     res.status(200).send({
         success:true,
         message:"All Posts Data",
@@ -59,15 +59,4 @@ const getAllPostsController=async(req,res)=>{
  }
 }
 
-
-//get user posts only
-
- const getUserPostsController=async()=>{
-    try{
-        
-    }catch(error){
-        console.log(error)
-    }
- }
-
-module.exports = { createPostController,getAllPostsController };
+module.exports = { createDoctorController,getAllDoctorController };
