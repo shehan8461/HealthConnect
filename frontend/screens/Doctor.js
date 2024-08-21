@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const Doctor = ({ navigation }) => {
     //global state
-    const[posts,setPosts]=useContext(PostContext)
+    const[posts,setPosts]=useState(" ")
 
     const [name, setname] = useState('');
     const [specialization, setspecialization] = useState('');

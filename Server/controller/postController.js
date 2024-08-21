@@ -2,20 +2,24 @@ const postModel = require('../models/postModel');
 
 const createPostController = async (req, res) => {
     try {
-        const { title, description } = req.body;
+        const { userId, serviceType,bookingDate,contact,specialIndustries } = req.body;
 
         // Validation: Check if all fields are provided
-        if (!title || !description) {
+        if ( !userId || !serviceType || !bookingDate || !contact || !specialIndustries) {
             return res.status(400).send({
                 success: false,
                 message: 'Please provide all fields',
             });
         }
 
+
         // Create and save the post
         const post = new postModel({
-            title,
-            description,
+            userId,
+            serviceType,
+            bookingDate,
+            contact,
+            specialIndustries,
             postedBy: req.auth._id,
         });
 

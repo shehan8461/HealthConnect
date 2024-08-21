@@ -60,18 +60,18 @@ const Myposts = () => {
     <ScrollView>
     {posts?.map((post,i)=>(
         <View style={styles.card}key={i}>
-            <View>
-            <Text style={{textAlign:"right"}}>
-             <FontAwesome5 name="trash" size={16}color={"red"} onPress={()=>handleDeletePromt(post?._id)}></FontAwesome5>
+            
+                        <Text style={styles.title}>UserId: {post?.userId}</Text>
+            <Text style={styles.text}>ServiceType: {post?.serviceType}</Text>
+            <Text style={styles.text}>BookingDate: {post?.bookingDate}</Text>
+            <Text style={styles.text}>Contact: {post?.contact}</Text>
+            <Text style={styles.text}>SpecialIndustries: {post?.specialIndustries}</Text>
+            <Text style={styles.trashIcon}>
+            <FontAwesome5 name="trash" size={16} color={styles.trashIcon.color} onPress={() => handleDeletePromt(post?._id)} />
             </Text>
-            </View>
-          <Text style={styles.title}>Title: {post?.title}</Text>
-          <Text>Description: {post?.description}</Text>
-       
-           <View>
-           <Text> {post?.postedBy?.name}</Text>
-           <Text> {moment(post?.createdAt).format("DD:MM:YYYY")}</Text>
-           </View>
+            <Text style={styles.date}>{moment(post?.createdAt).format("DD:MM:YYYY")}</Text>
+
+         
          </View>
 
       ))}
@@ -85,12 +85,50 @@ const Myposts = () => {
   )
 }
 
-const styles=StyleSheet.create({
-    container:{
-        flex:1,
-        margin:10,
-        justifyContent:'space-between',
-        marginTop:40
-    }
-})
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      margin: 10,
+      justifyContent: 'space-between',
+      marginTop: 40,
+      backgroundColor: '#f8f9fa',
+    },
+    card: {
+      backgroundColor: '#ffffff',
+      borderRadius: 8,
+      padding: 15,
+      marginBottom: 15,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 6,
+      elevation: 2,
+    },
+    title: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      color: '#333333',
+      marginBottom: 5,
+    },
+    text: {
+      fontSize: 14,
+      color: '#555555',
+      marginBottom: 5,
+    },
+    trashIcon: {
+      textAlign: 'right',
+      color: '#e63946',
+      marginBottom: 10,
+    },
+    date: {
+      fontSize: 12,
+      color: '#6c757d',
+      marginTop: 10,
+    },
+    footer: {
+      backgroundColor: '#ffffff',
+      padding: 10,
+    },
+  });
+  
 export default Myposts

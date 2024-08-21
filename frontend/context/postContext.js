@@ -13,7 +13,7 @@ const PostProvider=({children})=>{
         try{
             const {data}=await axios.get("/doctors/get-all-doctor-posts")
             setLoading(false)
-            setPosts(data?.postsd)
+            setPosts(data?.posts)
         }catch(error){
             console.log(error)
             setLoading(false)
