@@ -21,6 +21,7 @@ const ScreenMenu = () => {
     const Stack= createNativeStackNavigator();
     return (
           <Stack.Navigator initialRouteName="Login">
+            
             {authenticatedUser?(
                 <>
              <Stack.Screen

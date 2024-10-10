@@ -74,7 +74,7 @@ const Account = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        margin: 10,
+        margin: 20,
         justifyContent: 'space-between',
         marginTop: 40,
     },
@@ -84,14 +84,14 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     inputContainer: {
-        marginTop: 20,
+        marginTop: 30,
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
     },
     inputText: {
         fontWeight: "bold",
-        width: 70,
+        width: 80,
         color: "gray",
     },
     inputBox: {
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     updateButton: {
-        backgroundColor: "black",
+        backgroundColor: "blue",
         color: "white",
         height: 40,
         width: 250,
