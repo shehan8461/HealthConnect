@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
         margin: 20,
         justifyContent: 'space-between',
         marginTop: 40,
+        justifyContent: 'center',
     },
     warningText: {
         color: 'red',
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     inputContainer: {
-        marginTop: 30,
+        marginTop: 20,
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image, Alert, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, ImageBackground, Alert } from 'react-native';
 import FootMenu from '../componenet/Menus/FootMenu';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import axios from 'axios';
@@ -17,16 +17,7 @@ const Post = ({ navigation }) => {
     const [image, setImage] = useState(null);
     const [uploading, setUploading] = useState(false);
 
-    const pickImage = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.All,
-            allowsEditing: true,
-            aspect: [4, 3],
-            quality: 1,
-        });
-        const source = { uri: result.uri };
-        setImage(source);
-    };
+  
 
     const uploadImage = async () => {
         setUploading(true);
@@ -110,7 +101,7 @@ const Post = ({ navigation }) => {
                         <TouchableOpacity style={styles.postbtn} onPress={handlePost}>
                             <Text style={styles.postTextBtn}>
                                 <FontAwesome5 name="plus-square" size={18} color="white" />{' '}
-                                {loading ? 'Please wait...' : ' Booking Confirm'}
+                                {loading ? 'Please wait...' : ' Book Now'}
                             </Text>
                         </TouchableOpacity>
                     </View>
@@ -133,18 +124,17 @@ const styles = StyleSheet.create({
         padding: 20,
         backgroundColor: 'rgba(255, 255, 255, 0.8)', // Semi-transparent background for contrast
         borderRadius: 15,
-        margin: 10,
+        marginTop: -1,
     },
     heading: {
         fontSize: 32,
         fontWeight: 'bold',
-        color: '#ff6347',
+        color: '#1E90FF', // DodgerBlue for the heading
         marginBottom: 20,
         textTransform: 'uppercase',
         textAlign: 'center',
         borderBottomWidth: 2,
-        borderBottomColor: '#ff6347',
-        paddingBottom: 10,
+        borderBottomColor: '#1E90FF',
         letterSpacing: 1.5,
     },
     inputBox: {
@@ -155,7 +145,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         fontSize: 16,
         color: '#333',
-        borderColor: '#ff6347',
+        borderColor: '#1E90FF', // DodgerBlue for input border
         borderWidth: 2,
         width: '100%',
         shadowColor: '#000',
@@ -164,13 +154,13 @@ const styles = StyleSheet.create({
         shadowRadius: 8,
     },
     postbtn: {
-        backgroundColor: '#ff6347',
+        backgroundColor: '#1E90FF', // DodgerBlue for the button
         width: '80%',
         paddingVertical: 15,
         borderRadius: 15,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 20,
+        marginTop: 10,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 5 },
         shadowOpacity: 0.3,

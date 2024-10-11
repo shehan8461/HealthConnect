@@ -4,11 +4,7 @@ import moment from 'moment';
 
 const PostCard = ({ posts }) => {
   return (
-    <ImageBackground 
-      source={require('../assets/availableDoctors.jpg')} // Update the path as needed
-      style={styles.background}
-      resizeMode="cover" // Ensures the background covers the entire screen
-    >
+   
       <View style={styles.overlay}>
         <Text style={styles.heading}>Available Doctors: {posts?.length}</Text>
         {posts?.map((post, i) => (
@@ -22,61 +18,54 @@ const PostCard = ({ posts }) => {
           </View>
         ))}
       </View>
-    </ImageBackground>
+  
   );
 };
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.7)', // Light transparent white background
-},
+ 
   overlay: {
     flex: 1,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Dark overlay for text visibility
+    backgroundColor: 'rgba(10, 25, 47, 1)', // Dark blue background with full opacity
   },
   heading: {
-    color: '#f0f8ff', // Lighter text (AliceBlue) for better contrast
-    fontSize: 30,
+    color: '#ffebcd', // Soft beige color for better contrast against the dark blue
+    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 25,
+    marginBottom: 20,
     textAlign: 'center',
     letterSpacing: 1.5,
     textTransform: 'uppercase',
-    textShadowColor: '#000000',
+    textShadowColor: '#000',
     textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 8,
+    textShadowRadius: 5,
   },
   card: {
     width: '90%',
-    backgroundColor: 'rgba(143, 226, 260, 0.8)', // Light Blue (with 70% opacity) // Dark semi-transparent background
-    borderRadius: 20, // Soft rounded corners
-    padding: 25,
+    backgroundColor: 'rgba(0, 102, 204, 0.85)', // Darker blue with transparency for the card background
+    borderRadius: 15,
+    padding: 20,
     marginVertical: 15,
-    shadowColor: '#000000',
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.4,
     shadowRadius: 10,
-    elevation: 6,
+    elevation: 8,
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
-    color: 'darkblue',// Lighter white text for contrast
+    color: '#f0f8ff', // AliceBlue for a subtle light text effect
     marginBottom: 10,
     textTransform: 'uppercase',
   },
   specialization: {
     fontSize: 18,
-    color: 'black', // Light gray text for better readability
+    color: '#add8e6', // Light blue for specialization text
     marginBottom: 15,
   },
   userInfo: {
@@ -85,19 +74,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
     borderTopWidth: 1,
-    borderTopColor: '#dcdcdc', // Lighter border for a softer look
+    borderTopColor: '#dcdcdc', // Light gray border for the separator
     paddingTop: 15,
   },
   userName: {
     fontSize: 16,
-    color: '#ffffff', // White for user names
+    color: '#ffffff', // Pure white for the username
     fontStyle: 'italic',
   },
   date: {
     fontSize: 14,
-    color: 'black', // Lighter gray for the date text
+    color: '#f0f8ff', // Light blue color for date text
   },
+
 });
+
 
 
 
